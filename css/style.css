@@ -1,0 +1,64 @@
+body {
+	background-color: gainsboro;
+	/* Use a system font, if none are available use an available sans-sarif */
+	font-family: system-ui, sans-serif;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	//gap: 0;
+	width: 100%;
+}
+.headerbox {
+	height: 100px;
+	margin: 0 14.5px 0 0;
+}
+h1,
+h2 {
+	text-align: center;
+}
+#sidebar {
+	height: 1000px;
+	width: 100px;
+	display: flex;
+	flex-direction: column;
+	background-color: blue;
+}
+#board {
+	/* height: 363px;
+	width: 363px; 
+	height: 40%;
+	width: 40%;*/
+	aspect-ratio: 1/1;
+	display: flex;
+	flex-wrap: wrap;
+	//	row-gap: 2;
+
+	font-size: 1em;
+	//border: 1px solid black;
+	color: gainsboro;
+}
+.cell {
+	height: 8%;
+	width: 8%;
+	aspect-ratio: 1/1;
+	justify-content: center;
+	border: 1px solid black;
+	margin: 1px 1.5px;
+	color: black;
+	font-size: 1.5em;
+	align-content: center;
+	background-size: cover;
+}
+div {
+	aspect-ratio: 1/1;
+	font-size: 1em;
+	text-align: center;
+	color: gainsboro;
+}
+img {
+	height: 30px;
+	width: 30px;
+	aspect-ratio: 1/1;
+
+	text-align: center;
+}
