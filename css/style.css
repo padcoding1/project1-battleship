@@ -2,50 +2,63 @@ body {
 	background-color: gainsboro;
 	/* Use a system font, if none are available use an available sans-sarif */
 	font-family: system-ui, sans-serif;
-	margin: 0;
+	
+	
+	
+}
+section {
+	height: 70%
+	width: 70%;
+	margin: 15% 15%;
 	display: flex;
 	flex-direction: column;
-	//gap: 0;
-	width: 100%;
 }
 .headerbox {
-	height: 100px;
-	margin: 0 14.5px 0 0;
+	height: 10%;
+	margin: 5%;
 }
 h1,
 h2 {
 	text-align: center;
+	
 }
 #sidebar {
-	height: 1000px;
-	width: 100px;
+	height: 0px;
+	width: 0px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: column; 
 	background-color: blue;
 }
-#board {
-	/* height: 363px;
-	width: 363px; 
-	height: 40%;
-	width: 40%;*/
-	aspect-ratio: 1/1;
-	display: flex;
-	flex-wrap: wrap;
-	//	row-gap: 2;
 
-	font-size: 1em;
-	//border: 1px solid black;
+#board {
+	justify-content: center;
+	padding: 0;
+	margin: 0;
+	
+	display: grid;
+	grid-template-columns: repeat(11, 0.8fr);
+	grid-template-rows: auto;
+	
+	border: 1px solid black;
+	
+	
+	font-size: 4vw;
 	color: gainsboro;
+	aspect-ratio: 1/1;
+	align-content: center;
+	
 }
 .cell {
-	height: 8%;
-	width: 8%;
+	height: 90%;
+	width: 90%;
 	aspect-ratio: 1/1;
-	justify-content: center;
+	
+	
+	
+	
 	border: 1px solid black;
-	margin: 1px 1.5px;
 	color: black;
-	font-size: 1.5em;
+	font-size: 1.3em;
 	align-content: center;
 	background-size: cover;
 }
@@ -56,9 +69,45 @@ div {
 	color: gainsboro;
 }
 img {
-	height: 30px;
-	width: 30px;
+	object-fit: contain;
 	aspect-ratio: 1/1;
 
 	text-align: center;
+	animation: 
+}
+
+
+.draggable {
+	height: 9%;
+	width: 9%;
+	float:left;
+	/*height: 52px;*/
+	object-fit: contain;
+	
+}
+.long {
+	background-image: url(../media/borderTile.png);
+	
+	
+	/*height: 9%;
+	width: 9%;*/
+	
+}
+.short {
+	background-image: url(../media/borderTile.png);
+	/*height: 9%;
+	width: 9%;*/
+	
+}
+.draggable p {
+	font-size: 5%;
+	text-align: center;
+	/*padding: -20px 0 0 0;*/
+	
+	font-weight:900;
+}
+.draggable.ui-draggable-dragging {
+	background: red;
+	/*height: 9%;
+	width: 9%;*/
 }
