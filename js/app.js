@@ -118,9 +118,12 @@ function createEventListeners() {
       }
     }
   }
+  document.querySelector(".newgame").addEventListener("click", newGame);
   console.log("Call createEventListeners:");
 }
-
+function newGame() {
+  game.currentBattle = false;
+}
 function cellClicked(clickedCellEvent) {
   // console.log("clickedCellEvent:", clickedCellEvent);
 

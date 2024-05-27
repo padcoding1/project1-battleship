@@ -2,40 +2,46 @@ body {
 	background-color: gainsboro;
 	/* Use a system font, if none are available use an available sans-sarif */
 	font-family: system-ui, sans-serif;
-	
-	
-	
-}
-section {
-	height: 70%
-	width: 70%;
-	margin: 15% 15%;
+	text-align: center;
 	display: flex;
 	flex-direction: column;
+	margin: 0;
+	background-color: transparent;
+	
+	
 }
 .headerbox {
 	height: 10%;
 	margin: 5%;
+
 }
 h1,
 h2 {
 	text-align: center;
 	
 }
-#sidebar {
-	height: 0px;
-	width: 0px;
+.navAndBoard {
+	display: flex;
+	flex-direction: row;
+	
+	height: 70vh%
+	width: 70vw;
+}
+nav {
+	height: 70vh;
+	width: 15vw;
 	display: flex;
 	flex-direction: column; 
-	background-color: blue;
+	
 }
 
 #board {
-	justify-content: center;
+	
 	padding: 0;
 	margin: 0;
 	
 	display: grid;
+	
 	grid-template-columns: repeat(11, 0.8fr);
 	grid-template-rows: auto;
 	
@@ -46,11 +52,12 @@ h2 {
 	color: gainsboro;
 	aspect-ratio: 1/1;
 	align-content: center;
+	object-fit:contain;
 	
 }
 .cell {
-	height: 90%;
-	width: 90%;
+	height: 9vw;
+	width: 9vw;
 	aspect-ratio: 1/1;
 	
 	
@@ -74,6 +81,13 @@ img {
 
 	text-align: center;
 	animation: 
+}
+.featureButton {
+	
+	border-radius: 10px;
+	padding: 2% 0;
+	background-color:goldenrod;
+	font-size: 2.5vw;
 }
 
 
