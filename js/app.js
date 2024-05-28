@@ -14,10 +14,10 @@ const game = {
   gridArray: [100],
   gridId: "",
   coords1: [
-    ["", "", "", "", ""],
-    ["", "", "", ""],
-    ["", "", ""],
-    ["", ""],
+    ["A1", "A2", "A3", "A4", "A5"],
+    ["B3", "C3", "D3", "E3"],
+    ["C5", "C6", "C7"],
+    ["F8", "G8"],
   ],
   coords2: [
     ["", "", "", "", ""],
@@ -27,16 +27,9 @@ const game = {
   ],
 
   currentBattle: true,
-  vessels: {
-    vesselCount: 0,
-    hitsLeftPlayer1: 14,
-    hitsLeftPlayer2: 14,
-    vesselInfo: {
-      vesselHit: false,
-      vesselNum: undefined,
-      vesselSection: undefined,
-    },
-  },
+
+  hitsLeftPlayer1: 14,
+  hitsLeftPlayer2: 14,
 };
 
 function createNewGame() {
@@ -92,12 +85,13 @@ function getPlayerNames() {
   console.log(game.admiral2);
   let remove = document.getElementById("players");
   remove.remove();
-  // createBoard();
+
   console.log("...next func is nested!");
-  vesselCoords();
+  //vesselCoords();
+  createBoard();
 }
 function vesselCoords() {
-  document.querySelector("#messagebox").innerText = "";
+  document.querySelector("#messagebox").innerText = " ";
   createBoard();
   let tempCoords;
   for (let i = 0; i < 4; i++) {
@@ -208,26 +202,31 @@ function createBoard() {
       gridCount += 1;
     }
   }
+  createEventListeners();
 }
 
-function createEventListeners(passFunc) {
+function createEventListeners() {
   console.log("createEventListeners func");
+  document.querySelector("#messagebox").innerText = "Let's Play!";
 
   const cells = document.querySelectorAll(".cell");
   if (game.currentBattle === true) {
     cells.forEach((cell) => {
-      cell.addEventListener("click", passFunc);
+      cell.addEventListener("click", nextAction);
     });
     for (let i = 0; i < 11; i++) {
-      document.querySelector(`#\\@${i}`).removeEventListener("click", passFunc);
+      document
+        .querySelector(`#\\@${i}`)
+        .removeEventListener("click", nextAction);
 
       if (i > 0) {
         document
           .querySelector(`#${String.fromCharCode(64 + i)}` + "0")
-          .removeEventListener("click", passFunc);
+          .removeEventListener("click", nextAction);
       }
     }
   }
+  turnText();
 }
 
 function turnText() {
@@ -245,31 +244,30 @@ function nextAction(gridId) {
   if (game.currentBattle === false) {
     document.querySelector("#messagebox").innerText = `Game Over`;
   }
-
-  let passFunc = cellClicked();
-  createEventListeners(passFunc);
   hitOrMiss(gridId);
 }
 
 function cellClicked(clickedCellEvent) {
   console.log("cellClicked func");
   const clickedCell = clickedCellEvent.target;
+  console.log(clickedCell.id.toString());
   return clickedCell.id.toString();
 }
 
 function checkGridId(gridId) {
   console.log("checkGridId func");
   game.gridId = cellClicked(gridId);
-  object = game.vessels;
-  for (let i = 0; i < object.vesselCount; i++) {
-    object.vesselInfo.vesselSection = object.coords[i].indexOf(game.gridId);
-    if (object.vesselInfo.vesselSection > -1) {
-      console.log(
-        `Section ${object.vesselInfo.vesselSection} of Vessel #${i} found at ${game.gridId}`
-      );
-      object.vesselInfo.vesselNum = i;
-      object.vesselInfo.vesselSection;
-      console.log("Call checkGridId", object.vesselInfo);
+  array = game.gridArray;
+  doneCell = array.indexOf(game.gridId);
+  for (let i = 0; i < 5; i++) {
+    if (doneCell !== -1) {
+      game.gridArray[doneCell] = true;
+      return game.gridId;
+    }
+    if (doneCell === -1) {
+      document.querySelector(
+        "#messagebox"
+      ).innerText = `${game.gridId} already clicked here. Try Again`;
       return;
     }
   }
@@ -281,54 +279,42 @@ function hitOrMiss(gridId) {
     return;
   }
 
-  checkGridId(gridId);
-  let info = game.vessels.vesselInfo;
-  let id = game.gridId;
-  let array = game.gridArray;
-  let arrayIndex = array.indexOf(id);
-  if (arrayIndex === -1) {
-    document.querySelector(
-      "#messagebox"
-    ).innerText = `${id} already clicked here. Try Again`;
-    console.log("else if array", array);
-    return;
-  } else {
-    document.querySelector("#messagebox").innerText = `${id} clicked`;
-    array[arrayIndex] = true;
+  let shotCell = checkGridId(gridId);
+
+  for (let j = 0; j < 4; j++) {
+    for (let i = 0; i < 4; i++) {
+      shotCell = shotCell.toString();
+      console.log("!!!!!", shotCell.type);
+      if (shotCell === game.coords1[j][i]) {
+        game.hitsLeftPlayer1 -= 1;
+        document.querySelector("#messagebox").innerText = `${game.gridId} HIT!`;
+        playExplosion();
+
+        document.getElementById(`${game.gridId}`).style.backgroundImage =
+          "url(./media/explosion.gif";
+        setTimeout(
+          (explosion) =>
+            (document.getElementById(`${game.gridId}`).style.backgroundImage =
+              "url(./media/hitTile.png"),
+          1500
+        );
+      }
+    }
   }
 
-  if (info.vesselSection != -1) {
-    info.vesselSection = "hit";
-    document.querySelector("#messagebox").innerText = `${id} HIT!`;
+  document.querySelector("#messagebox").innerText = `${game.gridId} MISS!`;
+  playSplash();
+  document.getElementById(`${game.gridId}`).style.backgroundImage = "none";
+  document.getElementById(`${game.gridId}`).style.backgroundColor = "yellow";
 
-    playExplosion();
-
-    document.getElementById(`${game.gridId}`).style.backgroundImage =
-      "url(./media/explosion.gif";
-    setTimeout(
-      (explosion) =>
-        (document.getElementById(`${game.gridId}`).style.backgroundImage =
-          "url(./media/hitTile.png"),
-      900
-    );
-    game.vessels.hitsLeft -= 1;
-    console.log("HITS LEFT: ", game.vessels.hitsLeft);
-  } else {
-    document.querySelector("#messagebox").innerText = `${id} MISS!`;
-    playSplash();
-    document.getElementById(`${game.gridId}`).style.backgroundImage = "none";
-    document.getElementById(`${game.gridId}`).style.backgroundColor = "yellow";
-  }
-
-  if (game.vessels.hitsLeft === 0) {
+  if (game.hitsLeftPlayer1 === 0 || game.hitsLeftPlayer2 === 0) {
     document.querySelector(
       "#messagebox"
     ).innerText = `${game.currentAdmiral} WON!`;
     game.currentBattle = false;
   }
-  setTimeout(switchAdmiral(gridId), 2000);
+  setTimeout(switchAdmiral(), 2000);
 }
-
 function switchAdmiral() {
   console.log("switchAdmiral func");
   if (game.currentBattle === false) {
@@ -337,7 +323,7 @@ function switchAdmiral() {
   game.currentAdmiral =
     game.currentAdmiral === game.admiral1 ? game.admiral2 : game.admiral1;
   console.log("CURRENT ADMIRAL NOW: ", game.currentAdmiral);
-  //setTimeout(turnText(), 1000);
+  setTimeout(turnText(), 1000);
 }
 
 function playExplosion() {
