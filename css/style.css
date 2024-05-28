@@ -1,127 +1,157 @@
+
 body {
 	background-color: gainsboro;
-	/* Use a system font, if none are available use an available sans-sarif */
 	font-family: system-ui, sans-serif;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
 	margin: 0;
 	background-color: transparent;
-	
-	
-}
-.headerbox {
-	height: 10%;
-	margin: 5%;
-
+	width: 100%; 
+	height: 100%;
+	background-image: url(../media/slowOceanTile.gif);
+	/*Original Image: https://opengameart.org/sites/default/files/WaterTileOcean.gif);*/
+	background-size:100px;
+	background-repeat: repeat;
+	font-family: "Black Ops One", system-ui;
+  	font-weight: 400;
+  	font-style: normal;
+	color: gold;	
 }
 h1,
 h2 {
+	font-family: "Black Ops One", system-ui;
+ 	font-weight: 400;
+  	font-style: normal;
 	text-align: center;
-	
+	margin: 0;	
 }
-.navAndBoard {
+h1 {
+	-webkit-text-stroke: 1px rgb(0, 0, 0, 1);
+	font-size: 4em;
+	animation: pulse 5s infinite;	
+}
+@keyframes pulse {
+    0%   { opacity:1; }
+  50%  { opacity:0.5; }
+  100% { opacity:1; }
+}
+h2 {
+	font-family: impact, serif;
+	font-size: 1.5em;
+	-webkit-text-stroke: 1px rgb(0, 0, 0, 1);
+}
+h3 {
+	font-family: impact, serif;
+	font-size: 1.2em;
+	-webkit-text-stroke: 1px rgb(0, 0, 0, 1);
+}
+p {
+	font-family: impact, serif;
+	font-weight: bold;
+	size: 1em;
+	-webkit-text-stroke: 2x rgb(0, 0, 0, 1);
+}
+.headerbox {
+	background: 
+	height:10%;
+	margin: 10px 10px 10px;
+	justify-content: center;
+	border: 6px solid rgba(255, 215, 0, 0.8);
+	border-radius: 15px;
+}
+#messagebox{
+	margin: 10px 10px;
+	align-content: center;
+	color: crimson;
+	font-size: 1.8em;
+	font-family: impact, system-ui;
+	-webkit-text-stroke: 2px black;
+}
+@media only screen and (max-width: 520px) {
+	#navAndBoard {
+		margin: 0 0 0 0;
+		padding: 0 0 0 0;	
+	}
+	#gamecontent {
+		margin: 0 0 0 0; 
+	}
+}
+#gamecontent {
+	display: flex;
+	flex-direction: column;
+}
+#instructions {
+	width: 100%;
+	font-size: 20px;
+	font-weight: bold;
+	-webkit-text-stroke: 1px rgb(0, 0, 0, 1);	
+}
+input[type=text] {
+	width:  80%;
+	background: none;
+	font-family: impact, system-ui;
+	font-size: 1.5em;
+	color: crimson;
+	-webkit-text-stroke: 1.5px black;
+	margin: 5px 0 5px 0;
+}
+#submit {
+    width: 10em;  height: 2em;
+	background-color: gold;
+	color: rgb(0, 0, 0, 1);
+	font-family: "Black Ops One", system-ui;
+	font-weight: bold;
+	border: 2px solid rgb(0, 0, 0, 1);
+	border-radius: 5px;
+	margin: 5px 0 5px 0;
+	align-content: center;	
+}
+#navAndBoard {
 	display: flex;
 	flex-direction: row;
-	
-	height: 70vh%
-	width: 70vw;
+	padding: 0 10%;	
 }
 nav {
-	height: 70vh;
-	width: 15vw;
 	display: flex;
 	flex-direction: column; 
-	
+	margin: 0vw 1vw 0 1vw;
+	width: 30%;
 }
-
-#board {
-	
-	padding: 0;
-	margin: 0;
-	
+#gamecontent {
+	width: 100%;
+}
+#board{
+	width: 100%;
+	margin: 0 10px 0 20px;
 	display: grid;
-	
-	grid-template-columns: repeat(11, 0.8fr);
-	grid-template-rows: auto;
-	
-	border: 1px solid black;
-	
-	
-	font-size: 4vw;
+	grid-template-columns: repeat(11, minmax(12px, 55px));
 	color: gainsboro;
+	max-height:600px;
+	max-width: 600px;
+	min-width: 352px;
 	aspect-ratio: 1/1;
-	align-content: center;
+	align-content: top;
 	object-fit:contain;
-	
 }
 .cell {
-	height: 9vw;
-	width: 9vw;
+	font-size: 2vw;
 	aspect-ratio: 1/1;
-	
-	
-	
-	
-	border: 1px solid black;
-	color: black;
+	border: 1px solid white;
+	color: white;
 	font-size: 1.3em;
 	align-content: center;
-	background-size: cover;
-}
-div {
-	aspect-ratio: 1/1;
-	font-size: 1em;
-	text-align: center;
-	color: gainsboro;
-}
-img {
-	object-fit: contain;
-	aspect-ratio: 1/1;
-
-	text-align: center;
-	animation: 
+	padding: 2px;
+	object-fit:contain;
 }
 .featureButton {
-	
+	border: 2px solid rgb(0, 0, 0, 1);
 	border-radius: 10px;
-	padding: 2% 0;
-	background-color:goldenrod;
+	padding: 3% 1%;
+	background-color:gold;
+	color: rgb(0, 0, 0, 1);
+	font-family: "Black Ops One", system-ui;
 	font-size: 2.5vw;
-}
-
-
-.draggable {
-	height: 9%;
-	width: 9%;
-	float:left;
-	/*height: 52px;*/
-	object-fit: contain;
-	
-}
-.long {
-	background-image: url(../media/borderTile.png);
-	
-	
-	/*height: 9%;
-	width: 9%;*/
-	
-}
-.short {
-	background-image: url(../media/borderTile.png);
-	/*height: 9%;
-	width: 9%;*/
-	
-}
-.draggable p {
-	font-size: 5%;
-	text-align: center;
-	/*padding: -20px 0 0 0;*/
-	
-	font-weight:900;
-}
-.draggable.ui-draggable-dragging {
-	background: red;
-	/*height: 9%;
-	width: 9%;*/
+	font-weight: bold;
+	margin: 0 0 2px 0;
 }
