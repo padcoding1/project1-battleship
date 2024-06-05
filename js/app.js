@@ -291,7 +291,7 @@ function hitOrMiss(gridId) {
         playExplosion();
 
         document.getElementById(`${game.gridId}`).style.backgroundImage =
-          "url(./media/explosion.gif";
+          "url(../media/explosion.gif;";
         setTimeout(
           (explosion) =>
             (document.getElementById(`${game.gridId}`).style.backgroundImage =

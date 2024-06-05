@@ -1,61 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Battleship</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="icon" href="data:;base64,iVBORwOKGO=" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Special+Elite&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./css/style.css" />
-    <script defer asysnc="false" src="./js/app.js"></script>
-  </head>
-  <body>
-    <audio id="explosion" src="./media/explosion.mp3" type="audio/mp3"></audio>
-    <audio id="splash" src="./media/splash.mp3" type="audio/mp3"></audio>
-    <audio controls autoplay loop id="piratetheme">
-      <source src="./media/opensourcepirate.mp3" type="audio/mp3" />
-    </audio>
-    <div class="headerbox">
-      <h1>BATTLESHIP</h1>
-      <h2>A game of naval warfare</h2>
-    </div>
-    <div id="messagebox">
-      <br />
-    </div>
-    <section id="navAndBoard">
-      <nav>
-        <button class="featureButton" id="newGame">New Game</button>
-      </nav>
-      <section id="gamecontent">
-        <div id="instructions">
-          <h3>Instructions:</h3>
-          <p>**Click New Game** ADMIRAL 1 will always go first.</p>
-          <p>
-            You each have five ships of varying lengths, a carrier (5 cells), a
-            cruiser (4 cells), a battleship (3 cells), and a patrol boat (2
-            cells)
-          </p>
-          <p>
-            The fleet will be placed randomly around the board, and they can be
-            horizontal or vertical.
-          </p>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Battleship</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="icon" href="data:;base64,iVBORwOKGO=" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Special+Elite&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./css/style.css" />
+		<script defer asysnc="false" src="./js/app.js"></script>
+	</head>
+	<body>
+		<audio
+			id="explosion"
+			src="./media/explosion.mp3"
+			type="audio/mp3"
+		></audio>
+		<audio id="splash" src="./media/splash.mp3" type="audio/mp3"></audio>
+		<audio controls autoplay loop id="piratetheme">
+			<source src="./media/opensourcepirate.mp3" type="audio/mp3" />
+		</audio>
+		<div class="headerbox">
+			<h1>BATTLESHIP</h1>
+		</div>
+		<div id="messagebox">
+			<br />
+		</div>
+		<section id="navAndBoard">
+			<nav>
+				<button class="featureButton" id="newGame">New Game</button>
+			</nav>
+			<section id="gamecontent">
+				<div id="instructions">
+					<h3>Instructions:</h3>
+					<p>**Click New Game** ADMIRAL 1 will always go first.</p>
+					<p>
+						You each have five ships of varying lengths, a carrier (5
+						cells), a cruiser (4 cells), a battleship (3 cells), and a
+						patrol boat (2 cells)
+					</p>
+					<p>
+						The fleet will be placed randomly around the board, and they
+						can be horizontal or vertical.
+					</p>
 
-          <p>
-            Play begins with ADMIRAL 1 firi`ng their first shot at a cell they
-            think contains an enemy vessel. A HIT or a MISS will be recorded.
-          </p>
-          <p>
-            ADMIRAL 2 will then go, and play is repeated in an alternating
-            fashion.
-          </p>
-          <p>The first to destroy all ENEMY ships WINS!</p>
-        </div>
-      </section>
-    </section>
-  </body>
+					<p>
+						Play begins with ADMIRAL 1 firing their first shot at a cell
+						they think contains an enemy vessel. A HIT or a MISS will be
+						recorded.
+					</p>
+					<p>
+						ADMIRAL 2 will then go, and play is repeated in an alternating
+						fashion.
+					</p>
+					<p>The first to destroy all ENEMY ships WINS!</p>
+				</div>
+			</section>
+		</section>
+	</body>
 </html>

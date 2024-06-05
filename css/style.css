@@ -1,4 +1,3 @@
-
 body {
 	background-color: gainsboro;
 	font-family: system-ui, sans-serif;
@@ -7,60 +6,86 @@ body {
 	flex-direction: column;
 	margin: 0;
 	background-color: transparent;
-	width: 100%; 
+	width: 100%;
 	height: 100%;
 	background-image: url(../media/slowOceanTile.gif);
 	/*Original Image: https://opengameart.org/sites/default/files/WaterTileOcean.gif);*/
-	background-size:100px;
+	background-size: 100px;
 	background-repeat: repeat;
 	font-family: "Black Ops One", system-ui;
-  	font-weight: 400;
-  	font-style: normal;
-	color: gold;	
+	font-weight: 400;
+	font-style: normal;
 }
-h1,
+
+h1 {
+	font-family: "Black Ops One", system-ui;
+	font-weight: 400;
+	font-style: normal;
+	text-align: center;
+	-webkit-text-stroke: 2px black;
+	font-size: 5em;
+	animation: pulse 5s infinite;
+	margin: 0;
+	color: gold;
+}
+
+@keyframes pulse {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 h2 {
 	font-family: "Black Ops One", system-ui;
- 	font-weight: 400;
-  	font-style: normal;
+	font-weight: 400;
+	font-style: normal;
 	text-align: center;
-	margin: 0;	
+	-webkit-text-stroke: 2px black;
+	font-size: 2em;
+	margin: 0;
+	color: gold;
 }
-h1 {
-	-webkit-text-stroke: 1px rgb(0, 0, 0, 1);
-	font-size: 4em;
-	animation: pulse 5s infinite;	
-}
-@keyframes pulse {
-    0%   { opacity:1; }
-  50%  { opacity:0.5; }
-  100% { opacity:1; }
-}
-h2 {
-	font-family: impact, serif;
-	font-size: 1.5em;
-	-webkit-text-stroke: 1px rgb(0, 0, 0, 1);
-}
+
 h3 {
 	font-family: impact, serif;
-	font-size: 1.2em;
-	-webkit-text-stroke: 1px rgb(0, 0, 0, 1);
+	font-size: 2em;
+	color: gold;
+	-webkit-text-stroke: 2px black;
 }
-p {
-	font-family: impact, serif;
-	font-weight: bold;
-	size: 1em;
-	-webkit-text-stroke: 2x rgb(0, 0, 0, 1);
-}
+
 .headerbox {
-	background: 
-	height:10%;
-	margin: 10px 10px 10px;
-	justify-content: center;
+	background-image: repeating-linear-gradient(
+		-45deg,
+		rgba(255, 255, 255, 0.25),
+		rgba(255, 255, 255, 0.25) 2px,
+		transparent 1px,
+		transparent 6px
+	);
+	background-size: 4px 4px;
+	width: fit-content;
+	height: fit-content;
+	position: relative;
+
+	right: -1vw;
+
 	border: 6px solid rgba(255, 215, 0, 0.8);
 	border-radius: 15px;
 }
-#messagebox{
+
+p {
+	font-family: impact, serif;
+	font-weight: bold;
+	font-size: 1.5em;
+	color: gold;
+	-webkit-text-stroke: 2px black;
+}
+#messagebox {
 	margin: 10px 10px;
 	align-content: center;
 	color: crimson;
@@ -71,10 +96,10 @@ p {
 @media only screen and (max-width: 520px) {
 	#navAndBoard {
 		margin: 0 0 0 0;
-		padding: 0 0 0 0;	
+		padding: 0 0 0 0;
 	}
 	#gamecontent {
-		margin: 0 0 0 0; 
+		margin: 0 0 0 0;
 	}
 }
 #gamecontent {
@@ -85,10 +110,10 @@ p {
 	width: 100%;
 	font-size: 20px;
 	font-weight: bold;
-	-webkit-text-stroke: 1px rgb(0, 0, 0, 1);	
+	-webkit-text-stroke: 1px rgb(0, 0, 0, 1);
 }
-input[type=text] {
-	width:  80%;
+input[type="text"] {
+	width: 80%;
 	background: none;
 	font-family: impact, system-ui;
 	font-size: 1.5em;
@@ -96,8 +121,10 @@ input[type=text] {
 	-webkit-text-stroke: 1.5px black;
 	margin: 5px 0 5px 0;
 }
+
 #submit {
-    width: 10em;  height: 2em;
+	width: 10em;
+	height: 2em;
 	background-color: gold;
 	color: rgb(0, 0, 0, 1);
 	font-family: "Black Ops One", system-ui;
@@ -105,35 +132,40 @@ input[type=text] {
 	border: 2px solid rgb(0, 0, 0, 1);
 	border-radius: 5px;
 	margin: 5px 0 5px 0;
-	align-content: center;	
+	align-content: center;
 }
+
 #navAndBoard {
 	display: flex;
 	flex-direction: row;
-	padding: 0 10%;	
+	padding: 0 10%;
 }
+
 nav {
 	display: flex;
-	flex-direction: column; 
+	flex-direction: column;
 	margin: 0vw 1vw 0 1vw;
 	width: 30%;
 }
+
 #gamecontent {
 	width: 100%;
 }
-#board{
+
+#board {
 	width: 100%;
 	margin: 0 10px 0 20px;
 	display: grid;
 	grid-template-columns: repeat(11, minmax(12px, 55px));
 	color: gainsboro;
-	max-height:600px;
+	max-height: 600px;
 	max-width: 600px;
 	min-width: 352px;
 	aspect-ratio: 1/1;
 	align-content: top;
-	object-fit:contain;
+	object-fit: contain;
 }
+
 .cell {
 	font-size: 2vw;
 	aspect-ratio: 1/1;
@@ -142,13 +174,14 @@ nav {
 	font-size: 1.3em;
 	align-content: center;
 	padding: 2px;
-	object-fit:contain;
+	object-fit: contain;
 }
+
 .featureButton {
 	border: 2px solid rgb(0, 0, 0, 1);
 	border-radius: 10px;
 	padding: 3% 1%;
-	background-color:gold;
+	background-color: gold;
 	color: rgb(0, 0, 0, 1);
 	font-family: "Black Ops One", system-ui;
 	font-size: 2.5vw;
